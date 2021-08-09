@@ -35,7 +35,7 @@ Vista la arquitectura, MarvelHeroes se compone de 3 módulos.
 
 ## Requisitos
 
-- iOS 14.5+
+- iOS 14.1+
 - Xcode 12.0+
 - Clave pública y clave privada de la api de Marvel. Antes de poder utilizar la aplicación, necesitas una cuenta de desarrolladores de Marvel donde obtendrás las APIKeys necesarias para utilizar la aplicación. https://developer.marvel.com/
 
