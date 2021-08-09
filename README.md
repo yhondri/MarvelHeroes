@@ -33,6 +33,8 @@ Vista la arquitectura, MarvelHeroes se compone de 3 módulos.
 - CharacterDetail, permite visualizar los detalles de un personaje. 
 - ComicDetail, permite visualizar los detalles de un cómic en el que aparezca un personaje. 
 
+Además se incluyen unos tests unitarios, MarvelHeroesTests, que se encargan de probar el presenter y el interactor del módulo CharacterList.
+
 ## Requisitos
 
 - iOS 14.1+
