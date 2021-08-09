@@ -18,7 +18,7 @@ class CharacterListInteractor: CharacterListInteractorInput {
     }
     
     func onInsertApiKeys(publicKey: String, privateKey: String) {
-//        apiRepository.onInsertApiKeys(publicKey: publicKey, privateKey: privateKey)
+        apiRepository.onInsertApiKeys(publicKey: publicKey, privateKey: privateKey)
     }
     
     func onLoadData() {

@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var window: UIWindow? = {
         let window = UIWindow()
-        window.tintColor = .white
+        window.tintColor = .systemBlue
         return window
     }()
     

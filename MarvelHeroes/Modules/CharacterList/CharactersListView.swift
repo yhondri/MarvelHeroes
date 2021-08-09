@@ -52,10 +52,17 @@ class CharactersListView: UIViewController {
         credentialsMessage.text = LocalizedKey.characterListViewCredentialsMessage.localized
         publicApiKeyTextField.placeholder = LocalizedKey.characterListViewPublicApiKey.localized
         privateApiKeyTextField.placeholder = LocalizedKey.characterListViewPrivateApiKey.localized
+        privateApiKeyTextField.delegate = self
         apiKeyAceptButton.setTitle(LocalizedKey.acept.localized, for: .normal)
     }
     
     @IBAction func onDidInsertKeys(_ sender: Any) {
+        performInsertKeys()
+    }
+    
+    private func performInsertKeys() {
+        view.endEditing(true)
+
         guard let publicKey = publicApiKeyTextField.text,
               let privateKey = privateApiKeyTextField.text,
               !publicKey.isEmpty,
@@ -74,6 +81,14 @@ class CharactersListView: UIViewController {
         UIView.animate(withDuration: 0.25) {
             self.apiKeyDialogView.alpha = 1
         }
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension CharactersListView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        performInsertKeys()
+        return true
     }
 }
 
