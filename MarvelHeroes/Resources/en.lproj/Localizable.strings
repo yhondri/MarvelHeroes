@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  MarvelHeroes
+
+  Created by Yhondri Acosta Novas on 9/8/21.
+  
+*/
+
+// MARK: - General
+"ups" = "¡Ups!";
+"acept" = "Acept";
+"no_description" = "No description";
+
+// MARK: - CharactersListView
+"characterlistview_characters" = "Characters";
+"characterlistview_error_loading_characters" = "There was a problem loading characters, try again in a few seconds";
+"characterlistview_load_more" = "Load more";
+"characterlistview_credentials" = "Credencials";
+"characterlistview_credentials_message" = "Fill public key and private key (https://developer.marvel.com/account)";
+"characterlistview_public_apikey" = "Public Key";
+"characterlistview_private_apikey" = "Private key";
+"characterlistview_apikey_error_message" = "You need to fill public key and private key with valid values. You can find this values at https://developer.marvel.com/account";
+
+// MARK: - CharacterDetailViewController
+"characterDetailViewController_error_loading_characters" = "There was a problem loading data of this character, try again in a few seconds";
