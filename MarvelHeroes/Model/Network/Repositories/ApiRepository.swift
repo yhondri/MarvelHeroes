@@ -53,10 +53,8 @@ class ApiRepositoryImpl: ApiRepository {
         dispatcher.execute(action: .getComics(characterId: characterId))
             .then { result in
                 completionHandler(.success(result.data.comics))
-                debugPrint("Result ", result)
             }.catch { error in
                 completionHandler(.failure(.networkError(error)))
-                debugPrint("Error ", error)
             }
     }
 }
