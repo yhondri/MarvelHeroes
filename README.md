@@ -45,11 +45,15 @@ Vista la arquitectura, MarvelHeroes se compone de 3 módulos.
 - iOS
 - iPadOS
 
-## Tech
+## Librerías de terceros
 
 La aplicación utiliza los siguientes proyectos open source.
 
 - [SDWebImage](https://github.com/SDWebImage/SDWebImage) - Carga asíncrona de imágenes
+
+## Otros
+El Icono de la aplicación ha sido creado por
+[Sujud.icon](https://www.iconfinder.com/MUHrist)
 
 
 ## License
