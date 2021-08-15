@@ -9,23 +9,23 @@ import XCTest
 @testable import MarvelHeroes
 
 class CharacterListViewPresenterMock: NSObject {
-    private(set) var onDidLoadCharactersChecked = false
-    private(set) var onErrorLoadingCharactersChecked = false
-    private(set) var onHideApiKeysDialogChecked = false
+    private(set) var onDidLoadCharactersCalled = false
+    private(set) var onErrorLoadingCharactersCalled = false
+    private(set) var onHideApiKeysDialogCalled = false
 }
 
 // MARK: - CharacterListInteractorOutput
 extension CharacterListViewPresenterMock: CharacterListInteractorOutput {
     func onDidLoadCharacters(_ characters: [Character]) {
-        onDidLoadCharactersChecked = true
+        onDidLoadCharactersCalled = true
     }
     
     func onErrorLoadingCharacters() {
-        onErrorLoadingCharactersChecked = true
+        onErrorLoadingCharactersCalled = true
     }
     
     func onHideApiKeysDialog() {
-        onHideApiKeysDialogChecked = true
+        onHideApiKeysDialogCalled = true
     }
     
 }

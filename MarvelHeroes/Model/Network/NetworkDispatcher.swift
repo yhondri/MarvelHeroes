@@ -10,8 +10,8 @@ import Foundation
 
 class NetworkDispatcher: Dispatcher {
     var baseUrl: String
-    private var publicApiKey: String = "" //Empty keep safe
-    private var privateApiKey: String = "" //Empty keep safe
+    private lazy var publicApiKey: String = "" //Empty keep safe
+    private lazy var privateApiKey: String = "" //Empty keep safe
     
     init(baseUrl: String) {
         self.baseUrl = baseUrl
@@ -98,9 +98,6 @@ extension DispatcherError {
         guard response.statusCode >= 200, response.statusCode < 300 else {
             if let data = data, let errorCode = try? JSONDecoder().decode(ServerErrorCode.self, from: data) {
                 self = .serverError(code: errorCode.code, statusCode:  response.statusCode)
-//                if let errorBody = String(data: data, encoding: .utf8) {
-//                    print("Error body: ", errorBody)
-//                }
             } else {
                 self = .serverError(code: response.statusCode, statusCode: nil)
             }

@@ -10,17 +10,17 @@ import XCTest
 @testable import MarvelHeroes
 
 class CharactersListViewMock: CharacterListViewP {
-    private(set) var onDidLoadCharactersChecked = false
-    private(set) var showErrorLoadingDataChecked = false
+    private(set) var onDidLoadCharactersCalled = false
+    private(set) var showErrorLoadingDataCalled = false
     private(set) var changeLoadingViewVisibilityChecked = false
-    private(set) var hideApiKeysDialogChecked = false
+    private(set) var hideApiKeysDialogCalled = false
     
     func onDidLoadCharacters(_ newCharacters: [Character]) {
-        onDidLoadCharactersChecked = true
+        onDidLoadCharactersCalled = true
     }
     
     func showErrorLoadingData() {
-        showErrorLoadingDataChecked = true
+        showErrorLoadingDataCalled = true
     }
     
     func changeLoadingViewVisibility(isHidden: Bool) {
@@ -28,6 +28,6 @@ class CharactersListViewMock: CharacterListViewP {
     }
     
     func hideApiKeysDialog() {
-        hideApiKeysDialogChecked = true
+        hideApiKeysDialogCalled = true
     }
 }

@@ -10,7 +10,7 @@ import XCTest
 
 class ApiRepositoryMock: ApiRepository {
     private(set) var onInsertApiKeysChecked = false
-    private(set) var getCharactersChecked = false
+    private(set) var getCharactersCalled = false
     private(set) var getComicsChecked = false
     var getCharactersSucceeded = false
     var getComicsSucceeded = false
@@ -20,7 +20,7 @@ class ApiRepositoryMock: ApiRepository {
     }
     
     func getCharacters(completionHandler: @escaping (Result<[Character], DispatcherError>) -> Void) {
-        getCharactersChecked = true
+        getCharactersCalled = true
         
         if getCharactersSucceeded {
             completionHandler(.success(CharacterListResponse.getTestData().data.characters))

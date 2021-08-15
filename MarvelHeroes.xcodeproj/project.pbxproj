@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5640AAD926C9613300618AE1 /* CharacterListResponseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640AAD826C9613300618AE1 /* CharacterListResponseExtension.swift */; };
+		5640AADB26C9622300618AE1 /* ComicsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640AADA26C9622300618AE1 /* ComicsListResponse.swift */; };
+		5640AADD26C9623D00618AE1 /* ComicListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640AADC26C9623D00618AE1 /* ComicListData.swift */; };
+		5640AADF26C9624B00618AE1 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640AADE26C9624B00618AE1 /* Comic.swift */; };
+		5640AAE126C9626400618AE1 /* CharacterListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640AAE026C9626400618AE1 /* CharacterListData.swift */; };
+		5640AAE326C9628600618AE1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640AAE226C9628600618AE1 /* Character.swift */; };
+		5640AAE526C9629400618AE1 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640AAE426C9629400618AE1 /* Thumbnail.swift */; };
+		5640AAE726C962C200618AE1 /* ComicListResponseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640AAE626C962C200618AE1 /* ComicListResponseExtension.swift */; };
 		56791A8B26BD21E8006A6BA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56791A8A26BD21E8006A6BA8 /* AppDelegate.swift */; };
 		56791A9726BD21E9006A6BA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56791A9626BD21E9006A6BA8 /* Assets.xcassets */; };
 		56791A9A26BD21E9006A6BA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56791A9826BD21E9006A6BA8 /* LaunchScreen.storyboard */; };
@@ -73,6 +81,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5640AAD826C9613300618AE1 /* CharacterListResponseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListResponseExtension.swift; sourceTree = "<group>"; };
+		5640AADA26C9622300618AE1 /* ComicsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsListResponse.swift; sourceTree = "<group>"; };
+		5640AADC26C9623D00618AE1 /* ComicListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListData.swift; sourceTree = "<group>"; };
+		5640AADE26C9624B00618AE1 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		5640AAE026C9626400618AE1 /* CharacterListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListData.swift; sourceTree = "<group>"; };
+		5640AAE226C9628600618AE1 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		5640AAE426C9629400618AE1 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
+		5640AAE626C962C200618AE1 /* ComicListResponseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListResponseExtension.swift; sourceTree = "<group>"; };
 		56791A8726BD21E8006A6BA8 /* MarvelHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56791A8A26BD21E8006A6BA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56791A9626BD21E9006A6BA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -289,7 +305,13 @@
 		56791AE926BD32B8006A6BA8 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				5640AAE226C9628600618AE1 /* Character.swift */,
 				56791AEA26BD32C1006A6BA8 /* CharacterListResponse.swift */,
+				5640AAE026C9626400618AE1 /* CharacterListData.swift */,
+				5640AADA26C9622300618AE1 /* ComicsListResponse.swift */,
+				5640AADC26C9623D00618AE1 /* ComicListData.swift */,
+				5640AADE26C9624B00618AE1 /* Comic.swift */,
+				5640AAE426C9629400618AE1 /* Thumbnail.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -343,6 +365,8 @@
 				5692625826C09D9900D15396 /* CharactersListViewMock.swift */,
 				5692625D26C0A05900D15396 /* ApiRepositoryMock.swift */,
 				5692625F26C0A13800D15396 /* CharacterListViewPresenterMock.swift */,
+				5640AAD826C9613300618AE1 /* CharacterListResponseExtension.swift */,
+				5640AAE626C962C200618AE1 /* ComicListResponseExtension.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -493,18 +517,23 @@
 				56791ADE26BD2A2F006A6BA8 /* DateExtension.swift in Sources */,
 				5692625226C0922200D15396 /* UIViewControllerExtension.swift in Sources */,
 				56791AE026BD2AED006A6BA8 /* StringExtension.swift in Sources */,
+				5640AADD26C9623D00618AE1 /* ComicListData.swift in Sources */,
 				56791ADC26BD25F3006A6BA8 /* Actions.swift in Sources */,
 				56791A8B26BD21E8006A6BA8 /* AppDelegate.swift in Sources */,
 				56791AD126BD251A006A6BA8 /* Cancellable.swift in Sources */,
 				5692624126C07D8C00D15396 /* CharacterDetailContract.swift in Sources */,
+				5640AAE126C9626400618AE1 /* CharacterListData.swift in Sources */,
 				56791AEB26BD32C1006A6BA8 /* CharacterListResponse.swift in Sources */,
 				56791AE426BD2EA7006A6BA8 /* CharacterListPresenter.swift in Sources */,
 				56791AFD26BD53A1006A6BA8 /* ComicCVCell.swift in Sources */,
+				5640AAE526C9629400618AE1 /* Thumbnail.swift in Sources */,
 				56791AD826BD2571006A6BA8 /* NotificationExtension.swift in Sources */,
 				5692624926C0862200D15396 /* ColorExtension.swift in Sources */,
+				5640AAE326C9628600618AE1 /* Character.swift in Sources */,
 				56791AE826BD30FB006A6BA8 /* CharacterListRouter.swift in Sources */,
 				56791AE626BD2EAF006A6BA8 /* CharacterListInteractor.swift in Sources */,
 				5692624526C07E9B00D15396 /* CharacterDetailInteractor.swift in Sources */,
+				5640AADF26C9624B00618AE1 /* Comic.swift in Sources */,
 				56791AF626BD45F7006A6BA8 /* CharacterDetailViewController.swift in Sources */,
 				5692624726C07EA600D15396 /* CharacterDetailRouter.swift in Sources */,
 				56791AD326BD251A006A6BA8 /* NetworkDispatcher.swift in Sources */,
@@ -515,6 +544,7 @@
 				56791AFA26BD5084006A6BA8 /* ApiRepository.swift in Sources */,
 				56791B0226BD5986006A6BA8 /* ComicDetailViewController.swift in Sources */,
 				56791AC026BD2373006A6BA8 /* CharactersListView.swift in Sources */,
+				5640AADB26C9622300618AE1 /* ComicsListResponse.swift in Sources */,
 				56791AD526BD251A006A6BA8 /* Parser.swift in Sources */,
 				56791AE226BD2E5B006A6BA8 /* CharacterListContract.swift in Sources */,
 				56791AD026BD251A006A6BA8 /* Task.swift in Sources */,
@@ -529,6 +559,8 @@
 				5692625B26C0A03200D15396 /* CharacterListViewInteractorTests.swift in Sources */,
 				56791AA526BD21E9006A6BA8 /* MarvelHeroesTests.swift in Sources */,
 				5692625526C09C8C00D15396 /* CharacterListViewPresenterTests.swift in Sources */,
+				5640AAE726C962C200618AE1 /* ComicListResponseExtension.swift in Sources */,
+				5640AAD926C9613300618AE1 /* CharacterListResponseExtension.swift in Sources */,
 				5692625E26C0A05900D15396 /* ApiRepositoryMock.swift in Sources */,
 				5692626026C0A13800D15396 /* CharacterListViewPresenterMock.swift in Sources */,
 				5692625726C09CF500D15396 /* CharacterListInteractorTestMock.swift in Sources */,
@@ -789,6 +821,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UY69P266SE;
 				INFOPLIST_FILE = MarvelHeroesUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -809,6 +842,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UY69P266SE;
 				INFOPLIST_FILE = MarvelHeroesUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

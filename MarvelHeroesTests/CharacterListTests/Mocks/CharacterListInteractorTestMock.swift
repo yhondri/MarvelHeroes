@@ -10,7 +10,7 @@ import XCTest
 
 class CharacterListInteractorTestMock: CharacterListInteractorInput {
     private(set) var onInsertApiKeyChecked = false
-    private(set) var onLoadDataIsChecked = false
+    private(set) var onLoadDataIsCalled = false
     
     weak var output: CharacterListInteractorOutput?
     var onLoadDataSucceeded = true
@@ -20,7 +20,7 @@ class CharacterListInteractorTestMock: CharacterListInteractorInput {
     }
     
     func onLoadData() {
-        onLoadDataIsChecked = true
+        onLoadDataIsCalled = true
         
         if onLoadDataSucceeded  {
             output?.onDidLoadCharacters([])

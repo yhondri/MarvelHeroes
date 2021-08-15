@@ -35,9 +35,9 @@ class CharacterListViewPresenterTests: XCTestCase {
         presenter.interactor = interactor
         
         presenter.onLoadData()
-        XCTAssertTrue(interactor.onLoadDataIsChecked, "onLoadDataIsChecked debe ser llamado si el usuario hace Login")
-        XCTAssertTrue(view.onDidLoadCharactersChecked, "El flujo de carga de carácteres ha fallado")
-        XCTAssertTrue(view.hideApiKeysDialogChecked, "No se ha ocultado el diálogo de carga de credenciales")
+        XCTAssertTrue(interactor.onLoadDataIsCalled, "onLoadDataIsChecked debe ser llamado si el usuario hace Login")
+        XCTAssertTrue(view.onDidLoadCharactersCalled, "El flujo de carga de carácteres ha fallado")
+        XCTAssertTrue(view.hideApiKeysDialogCalled, "No se ha ocultado el diálogo de carga de credenciales")
     }
     
     func testOnLoadDataWorkflowFailed() {
@@ -49,8 +49,7 @@ class CharacterListViewPresenterTests: XCTestCase {
         presenter.interactor = interactor
         
         presenter.onLoadData()
-        XCTAssertTrue(interactor.onLoadDataIsChecked, "onLoadDataIsChecked debe ser llamado si el usuario hace Login")
-        XCTAssertTrue(view.showErrorLoadingDataChecked, "El flujo de carga de carácteres ha fallado")
+        XCTAssertTrue(interactor.onLoadDataIsCalled, "onLoadDataIsChecked debe ser llamado si el usuario hace Login")
+        XCTAssertTrue(view.showErrorLoadingDataCalled, "El flujo de carga de carácteres ha fallado")
     }
-
 }

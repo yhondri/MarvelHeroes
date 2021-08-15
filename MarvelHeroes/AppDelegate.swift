@@ -6,15 +6,10 @@
 //
 
 import UIKit
-import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    private(set) lazy var repository: ApiRepository = {
-        let dispatcher: NetworkDispatcher = NetworkDispatcher(baseUrl: "http://gateway.marvel.com/v1/public")
-        return ApiRepositoryImpl(dispatcher: dispatcher)
-    }()
+    private(set) lazy var repository: ApiRepository = ApiRepositoryImpl()
     
     lazy var window: UIWindow? = {
         let window = UIWindow()

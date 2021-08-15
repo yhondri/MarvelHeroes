@@ -8,8 +8,18 @@
 import UIKit
 
 protocol ApiRepository: AnyObject {
+    /// Inyecta en el NetworkDispatcher las credenciales del usuario necesarias para conectar con la API.
+    /// - Parameter publicKey: Clave pública.
+    /// - Parameter publicKey: Clave privada.
     func onInsertApiKeys(publicKey: String, privateKey: String)
+    
+    /// Obtiene un listado de personajes
+    /// - Parameter completionHandler: Este parámetro es un bloque que devolverá la respuesta asíncrona del resultado de la llamada. Si la ejecución ha ido correctamente devolverá en el parámetro success un nuevo listado de personajes. Si ha ocurrido un error en el parámetro failure devolverá un error
     func getCharacters(completionHandler: @escaping (Result<[Character], DispatcherError>) -> Void)
+    
+    /// Obtiene un listado de cómics en los que aparece el personaje cuyo id es pasado por parámetro.
+    /// - Parameter characterId: El identificador del personaje cuyos cómics se quieren obtener.
+    /// - Parameter completionHandler: Este parámetro es un bloque que devolverá la respuesta asíncrona del resultado de la llamada. Si la ejecución ha ido correctamente devolverá en el parámetro success un listado de los cómics en los que aparece el personaje. Si ha ocurrido un error en el parámetro failure devolverá un error
     func getComics(characterId: Int, completionHandler: @escaping (Result<[Comic], DispatcherError>) -> Void)
 }
 
@@ -24,14 +34,13 @@ class ApiRepositoryImpl: ApiRepository {
         loadedCharactersCount >= totalCharacters
     }
     
-    init(dispatcher: Dispatcher) {
+    init(dispatcher: Dispatcher = NetworkDispatcher(baseUrl: "http://gateway.marvel.com/v1/public")) {
         self.dispatcher = dispatcher
     }
     
     func onInsertApiKeys(publicKey: String, privateKey: String) {
         dispatcher.onInsertApiKeys(publicKey: publicKey, privateKey: privateKey)
     }
-
     func getCharacters(completionHandler: @escaping (Result<[Character], DispatcherError>) -> Void) {
         guard (loadedCharactersCount < totalCharacters) || totalCharacters == -1 else {
             completionHandler(.failure(.noData))

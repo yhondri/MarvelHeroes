@@ -20,15 +20,7 @@ enum DispatcherError: Error {
 
 enum LocalError: Error {
     case invalidResponse
-   case unknownError
-//   case connectionError
-//   case invalidCredentials
-//   case invalidRequest
-//   case notFound
-//   case serverError
-//   case serverUnavailable
-//   case timeOut
-//   case unsuppotedURL
+    case unknownError
 }
 
 protocol Dispatcher: AnyObject {
