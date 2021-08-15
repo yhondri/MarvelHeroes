@@ -19,12 +19,23 @@ class CharacterDetailInteractor: CharacterDetailInteractorInput {
     }
     
     func loadComics() {
-        apiRepository.getComics(characterId: character.id) { result in
-            switch result {
-            case .success(let comics):
-                self.output?.didLoadComics(comics)
-            case .failure:
-                self.output?.showErrorLoadingComics()
+        if #available(iOS 15.0, *) {
+            Task {
+                do {
+                    let comics = try await apiRepository.getComics(characterId: character.id)
+                    self.output?.didLoadComics(comics)
+                } catch {
+                    self.output?.showErrorLoadingComics()
+                }
+            }
+        } else {
+            apiRepository.getComics(characterId: character.id) { result in
+                switch result {
+                case .success(let comics):
+                    self.output?.didLoadComics(comics)
+                case .failure:
+                    self.output?.showErrorLoadingComics()
+                }
             }
         }
     }

@@ -1,5 +1,5 @@
 //
-//  Task.swift
+//  NetworkTask.swift
 //  MarvelHeroes
 //
 //  Created by Yhondri Acosta Novas on 6/8/21.
@@ -8,7 +8,7 @@
 import Foundation
 import os.log
 
-class Task<Output>: Cancellable {
+class NetworkTask<Output>: Cancellable {
     var isCancelled: Bool = false
     var cancelBlock: (() -> Void)?
     var alwaysBlock: (() -> Void)? {

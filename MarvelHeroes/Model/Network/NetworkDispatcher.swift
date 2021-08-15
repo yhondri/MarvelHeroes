@@ -12,16 +12,17 @@ class NetworkDispatcher: Dispatcher {
     var baseUrl: String
     private lazy var publicApiKey: String = "" //Empty keep safe
     private lazy var privateApiKey: String = "" //Empty keep safe
-    
+    private lazy var decoder = JSONDecoder()
+
     init(baseUrl: String) {
         self.baseUrl = baseUrl
     }
     
     @discardableResult
-    func execute<Output>(action: Action<Output>) -> Task<Output> {
-        let task = Task<Output>()
-        var request = buildRequest(for: action)
-        request.cachePolicy = .reloadIgnoringCacheData
+    func execute<Output>(action: Action<Output>) -> NetworkTask<Output> {
+        let task = NetworkTask<Output>()
+        let request = buildRequest(for: action)
+//        request.cachePolicy = .reloadIgnoringCacheData
         let sessionTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = DispatcherError(request: request, data: data, response: response, error: error) {
                 task.complete(error)
@@ -35,6 +36,14 @@ class NetworkDispatcher: Dispatcher {
         sessionTask.resume()
         
         return task
+    }
+    
+    @available(iOS 15.0, *)
+    @discardableResult
+    func execute<T: Decodable>(action: Action<T>) async throws -> T {
+        let request = buildRequest(for: action)
+        let (data, _) = try await URLSession.shared.data(for: request, delegate: nil)
+        return try decoder.decode(T.self, from: data)
     }
     
     func buildRequest<Output>(for action: Action<Output>) -> URLRequest {

@@ -22,17 +22,33 @@ class CharacterListInteractor: CharacterListInteractorInput {
     }
     
     func onLoadData() {
-        apiRepository.getCharacters { result in
-            switch result {
-            case .success(let characters):
-                self.output?.onDidLoadCharacters(characters)
-                if !self.didSuccessFirstLoading && !characters.isEmpty {
-                    self.output?.onHideApiKeysDialog()
-                    self.didSuccessFirstLoading = true
+        if #available(iOS 15.0, *) {
+            Task {
+                do {
+                    let characters = try await apiRepository.getCharacters()
+                    self.handleSuccess(characters: characters)
+                } catch {
+                    self.output?.onErrorLoadingCharacters()
                 }
-            case .failure:
-                self.output?.onErrorLoadingCharacters()
+            }
+        } else {
+            apiRepository.getCharacters { result in
+                switch result {
+                case .success(let characters):
+                    self.handleSuccess(characters: characters)
+                case .failure:
+                    self.output?.onErrorLoadingCharacters()
+                }
             }
         }
     }
+    
+    private func handleSuccess(characters: [Character]) {
+        self.output?.onDidLoadCharacters(characters)
+        if !self.didSuccessFirstLoading && !characters.isEmpty {
+            self.output?.onHideApiKeysDialog()
+            self.didSuccessFirstLoading = true
+        }
+    }
+    
 }

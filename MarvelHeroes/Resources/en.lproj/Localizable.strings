@@ -15,7 +15,7 @@
 "characterlistview_characters" = "Characters";
 "characterlistview_error_loading_characters" = "There was a problem loading characters, try again in a few seconds";
 "characterlistview_load_more" = "Load more";
-"characterlistview_credentials" = "Credencials";
+"characterlistview_credentials" = "Credentials";
 "characterlistview_credentials_message" = "Fill public key and private key (https://developer.marvel.com/account)";
 "characterlistview_public_apikey" = "Public Key";
 "characterlistview_private_apikey" = "Private key";

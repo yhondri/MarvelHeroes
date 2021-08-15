@@ -27,6 +27,11 @@ protocol Dispatcher: AnyObject {
     func onInsertApiKeys(publicKey: String, privateKey: String)
 
     @discardableResult
-    func execute<Output>(action: Action<Output>) -> Task<Output>
+    func execute<Output>(action: Action<Output>) -> NetworkTask<Output>
+    
+    @discardableResult
+    @available(iOS 15.0, *)
+    func execute<T: Decodable>(action: Action<T>) async throws -> T
+
     func cleanURLSessionCache()
 }
