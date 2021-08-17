@@ -38,7 +38,7 @@ Además se incluyen unos tests unitarios, MarvelHeroesTests, que se encargan de 
 ## Requisitos
 
 - iOS 14.1+
-- Xcode 12.0+
+- Xcode 13.0 beta 5+
 - Clave pública y clave privada de la api de Marvel. Antes de poder utilizar la aplicación, necesitas una cuenta de desarrolladores de Marvel donde obtendrás las APIKeys necesarias para utilizar la aplicación. https://developer.marvel.com/
 
 ## Características
