@@ -9,9 +9,11 @@ import XCTest
 @testable import MarvelHeroes
 
 class CharacterListInteractorTestMock: CharacterListInteractorInput {
+    
     private(set) var onInsertApiKeyChecked = false
     private(set) var onLoadDataIsCalled = false
-    
+    var didSuccessFirstLoading: Bool = false
+
     weak var output: CharacterListInteractorOutput?
     var onLoadDataSucceeded = true
 
