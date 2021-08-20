@@ -14,6 +14,9 @@ protocol CharacterListPresentation: AnyObject {
 }
 
 protocol CharacterListInteractorInput: AnyObject {
+    var output: CharacterListInteractorOutput? { get }
+    var didSuccessFirstLoading: Bool { get set }
+    
     func onInsertApiKeys(publicKey: String, privateKey: String)
     func onLoadData()
 }

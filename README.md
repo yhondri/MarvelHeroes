@@ -36,9 +36,15 @@ Vista la arquitectura, MarvelHeroes se compone de 3 módulos.
 Además se incluyen unos tests unitarios, MarvelHeroesTests, que se encargan de probar el presenter y el interactor del módulo CharacterList.
 
 ## Requisitos
+#### Target MarvelHeroes
+- iOS 14.1+
+- Xcode 12.0+
 
+#### Target MarvelHeroes_ios15
 - iOS 14.1+
 - Xcode 13.0 beta 5+
+
+#### Ambos targets
 - Clave pública y clave privada de la api de Marvel. Antes de poder utilizar la aplicación, necesitas una cuenta de desarrolladores de Marvel donde obtendrás las APIKeys necesarias para utilizar la aplicación. https://developer.marvel.com/
 
 ## Características
