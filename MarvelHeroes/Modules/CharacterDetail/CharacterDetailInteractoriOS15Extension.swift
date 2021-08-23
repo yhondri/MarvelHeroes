@@ -5,7 +5,7 @@
 //  Created by Yhondri Acosta Novas on 20/8/21.
 //
 
-import UIKit
+import Foundation
 
 extension CharacterDetailInteractor {
     func loadComics() {

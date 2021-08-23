@@ -30,7 +30,6 @@ class CharacterDetailViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad(navController: navigationController!)
         let character = presenter.character
         characterImageView.sd_setImage(with: character.thumbnail.getURL(),
                                        placeholderImage: nil,
@@ -98,7 +97,6 @@ extension CharacterDetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let comic = comics[indexPath.row]
-        let comicDetailView = ComicDetailViewController(comic: comic)
-        navigationController?.pushViewController(comicDetailView, animated: true)
+        presenter.showComicDetail(comic)
     }
 }

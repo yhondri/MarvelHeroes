@@ -9,8 +9,8 @@ import UIKit
 
 protocol CharacterDetailPresentation: AnyObject {
     var character: Character { get }
-    func viewDidLoad(navController: UINavigationController)
     func loadComics()
+    func showComicDetail(_ comic: Comic)
 }
 
 protocol CharacterDetailInteractorInput: AnyObject {
@@ -24,7 +24,7 @@ protocol CharacterDetailInteractorOutput: AnyObject {
 }
 
 protocol CharacterDetailWireframe: AnyObject {
-    func viewDidLoad(navController: UINavigationController)
+    func showComicDetail(_ comic: Comic)
 }
 
 protocol CharacterDetailView: AnyObject {

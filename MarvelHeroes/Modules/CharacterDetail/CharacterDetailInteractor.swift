@@ -5,7 +5,7 @@
 //  Created by Yhondri Acosta Novas on 8/8/21.
 //
 
-import UIKit
+import Foundation
 
 class CharacterDetailInteractor: CharacterDetailInteractorInput {
     weak var output: CharacterDetailInteractorOutput?

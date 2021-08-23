@@ -5,7 +5,7 @@
 //  Created by Yhondri Acosta Novas on 8/8/21.
 //
 
-import UIKit
+import Foundation
 
 class CharacterDetailPresenter: CharacterDetailPresentation {
     var interactor: CharacterDetailInteractorInput?
@@ -18,12 +18,12 @@ class CharacterDetailPresenter: CharacterDetailPresentation {
         return character
     }
     
-    func viewDidLoad(navController: UINavigationController) {
-        router?.viewDidLoad(navController: navController)
-    }
-    
     func loadComics() {
         interactor?.loadComics()
+    }
+    
+    func showComicDetail(_ comic: Comic) {
+        router?.showComicDetail(comic)
     }
 }
 

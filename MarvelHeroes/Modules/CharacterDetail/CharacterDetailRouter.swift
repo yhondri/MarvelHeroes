@@ -9,10 +9,15 @@ import UIKit
 
 class CharacterDetailRouter: CharacterDetailWireframe {
     
-    private var navController: UINavigationController?
+    var viewController: UIViewController?
     
-    func viewDidLoad(navController: UINavigationController) {
-        self.navController = navController
+    func showComicDetail(_ comic: Comic) {
+        guard let navController = viewController?.navigationController else {
+            debugPrint("Cannot show this module without navController")
+            return
+        }
+        let comicDetailView = ComicDetailViewController(comic: comic)
+        navController.pushViewController(comicDetailView, animated: true)
     }
     
     static func getModule(character: Character) -> CharacterDetailViewController {
@@ -28,7 +33,7 @@ class CharacterDetailRouter: CharacterDetailWireframe {
         presenter.router = router
         let view = CharacterDetailViewController(presenter: presenter)
         presenter.view = view
-        
+        router.viewController = view        
         return view
     }    
 }
