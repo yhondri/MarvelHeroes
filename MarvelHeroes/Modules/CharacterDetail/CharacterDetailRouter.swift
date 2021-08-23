@@ -21,7 +21,7 @@ class CharacterDetailRouter: CharacterDetailWireframe {
     }
     
     static func getModule(character: Character) -> CharacterDetailViewController {
-        guard let apiRepository = AppDelegate.sharedAppDelegate()?.repository else {
+        guard let apiRepository = AppDelegate.sharedAppDelegate()?.mainRouter?.repositories[.apiRepository] as? ApiRepository else {
             fatalError("Cannot initialize this module without apiRepository")
         }
         

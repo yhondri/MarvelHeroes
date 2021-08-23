@@ -15,6 +15,8 @@
 		5640AAE326C9628600618AE1 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640AAE226C9628600618AE1 /* Character.swift */; };
 		5640AAE526C9629400618AE1 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640AAE426C9629400618AE1 /* Thumbnail.swift */; };
 		5640AAE726C962C200618AE1 /* ComicListResponseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640AAE626C962C200618AE1 /* ComicListResponseExtension.swift */; };
+		56581B3126D40EA0005DD8D4 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56581B3026D40EA0005DD8D4 /* MainRouter.swift */; };
+		56581B3226D40EA0005DD8D4 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56581B3026D40EA0005DD8D4 /* MainRouter.swift */; };
 		5662BE4426CF99A800AD8D43 /* CharacterListInteractor_ios15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662BE4326CF99A800AD8D43 /* CharacterListInteractor_ios15.swift */; };
 		5662BE4626CF9B0E00AD8D43 /* CharacterListInteractorInputExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662BE4526CF9B0E00AD8D43 /* CharacterListInteractorInputExtension.swift */; };
 		5662BE4726CF9B0E00AD8D43 /* CharacterListInteractorInputExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662BE4526CF9B0E00AD8D43 /* CharacterListInteractorInputExtension.swift */; };
@@ -132,6 +134,7 @@
 		5640AAE226C9628600618AE1 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		5640AAE426C9629400618AE1 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		5640AAE626C962C200618AE1 /* ComicListResponseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListResponseExtension.swift; sourceTree = "<group>"; };
+		56581B3026D40EA0005DD8D4 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		5662BE4326CF99A800AD8D43 /* CharacterListInteractor_ios15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractor_ios15.swift; sourceTree = "<group>"; };
 		5662BE4526CF9B0E00AD8D43 /* CharacterListInteractorInputExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractorInputExtension.swift; sourceTree = "<group>"; };
 		5662BE4826CF9B5800AD8D43 /* ApiRepository_ios15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRepository_ios15.swift; sourceTree = "<group>"; };
@@ -250,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				56791A8A26BD21E8006A6BA8 /* AppDelegate.swift */,
+				56581B3026D40EA0005DD8D4 /* MainRouter.swift */,
 				56791ABD26BD2344006A6BA8 /* Modules */,
 				56791AC326BD24DF006A6BA8 /* Model */,
 				56791AD626BD2561006A6BA8 /* Utils */,
@@ -578,6 +582,7 @@
 				5692625226C0922200D15396 /* UIViewControllerExtension.swift in Sources */,
 				56791AE026BD2AED006A6BA8 /* StringExtension.swift in Sources */,
 				5640AADD26C9623D00618AE1 /* ComicListData.swift in Sources */,
+				56581B3126D40EA0005DD8D4 /* MainRouter.swift in Sources */,
 				56791ADC26BD25F3006A6BA8 /* Actions.swift in Sources */,
 				5662BE4626CF9B0E00AD8D43 /* CharacterListInteractorInputExtension.swift in Sources */,
 				56791A8B26BD21E8006A6BA8 /* AppDelegate.swift in Sources */,
@@ -647,6 +652,7 @@
 				567C7AF926CF9901008E75C7 /* CharacterListData.swift in Sources */,
 				567C7AFA26CF9901008E75C7 /* CharacterListResponse.swift in Sources */,
 				567C7AFB26CF9901008E75C7 /* CharacterListPresenter.swift in Sources */,
+				56581B3226D40EA0005DD8D4 /* MainRouter.swift in Sources */,
 				567C7AFC26CF9901008E75C7 /* ComicCVCell.swift in Sources */,
 				567C7AFD26CF9901008E75C7 /* Thumbnail.swift in Sources */,
 				5662BE4426CF99A800AD8D43 /* CharacterListInteractor_ios15.swift in Sources */,

@@ -24,6 +24,7 @@ class NetworkDispatcher: Dispatcher {
         let request = buildRequest(for: action)
         let sessionTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = DispatcherError(request: request, data: data, response: response, error: error) {
+                debugPrint("Error \(error)")
                 task.complete(error)
                 return
             } else {

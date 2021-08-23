@@ -9,13 +9,14 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    private(set) lazy var repository: ApiRepository = ApiRepositoryImpl()
     
     lazy var window: UIWindow? = {
         let window = UIWindow()
         window.tintColor = .systemBlue
         return window
     }()
+    
+    private(set) var mainRouter: MainRouter?
     
     class func sharedAppDelegate() -> AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
@@ -26,10 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.configureWithTransparentBackground()
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
-        
-        let navController = UINavigationController(rootViewController: CharacterListRouter.getModule(repository: repository))
-        window?.rootViewController = navController
-        window?.makeKeyAndVisible()
+
+        mainRouter = MainRouterImpl(window: window)
+        mainRouter?.start()
 
         return true
     }
