@@ -64,21 +64,17 @@ class CharacterDetailViewController: UIViewController {
 // MARK: - CharacterDetailView
 extension CharacterDetailViewController: CharacterDetailView {
     func showComics(_ comics: [Comic]) {
-        DispatchQueue.main.async {
-            self.comics = comics
-            self.comicsCollectionView.reloadData()
-        }
+        self.comics = comics
+        self.comicsCollectionView.reloadData()
     }
     
     func showErrorLoadingComics() {
-        DispatchQueue.main.async {
-            let alertController = UIAlertController(title: LocalizedKey.ups.localized,
-                                                    message: LocalizedKey.characterDetailViewErrorLoadingCharacters.localized,
-                                                    preferredStyle: .alert)
-            let aceptAction = UIAlertAction(title: LocalizedKey.acept, style: .default, handler: nil)
-            alertController.addAction(aceptAction)
-            self.present(alertController, animated: true, completion: nil)
-        }
+        let alertController = UIAlertController(title: LocalizedKey.ups.localized,
+                                                message: LocalizedKey.characterDetailViewErrorLoadingCharacters.localized,
+                                                preferredStyle: .alert)
+        let aceptAction = UIAlertAction(title: LocalizedKey.acept, style: .default, handler: nil)
+        alertController.addAction(aceptAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 

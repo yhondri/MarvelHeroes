@@ -10,11 +10,13 @@ import UIKit
 extension CharacterDetailInteractor {    
     func loadComics() {
         apiRepository.getComics(characterId: character.id) { result in
-            switch result {
-            case .success(let comics):
-                self.output?.didLoadComics(comics)
-            case .failure:
-                self.output?.showErrorLoadingComics()
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let comics):
+                    self.output?.didLoadComics(comics)
+                case .failure:
+                    self.output?.showErrorLoadingComics()
+                }
             }
         }
     }

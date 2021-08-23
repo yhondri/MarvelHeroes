@@ -15,9 +15,13 @@ extension CharacterDetailInteractor {
         Task {
             do {
                 let comics = try await apiRepository.getComics(characterId: character.id)
-                self.output?.didLoadComics(comics)
+                DispatchQueue.main.async {
+                    self.output?.didLoadComics(comics)
+                }
             } catch {
-                self.output?.showErrorLoadingComics()
+                DispatchQueue.main.async {
+                    self.output?.showErrorLoadingComics()
+                }
             }
         }
     }
