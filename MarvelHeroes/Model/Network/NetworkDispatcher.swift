@@ -22,7 +22,6 @@ class NetworkDispatcher: Dispatcher {
     func execute<Output>(action: Action<Output>) -> NetworkTask<Output> {
         let task = NetworkTask<Output>()
         let request = buildRequest(for: action)
-//        request.cachePolicy = .reloadIgnoringCacheData
         let sessionTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = DispatcherError(request: request, data: data, response: response, error: error) {
                 task.complete(error)
