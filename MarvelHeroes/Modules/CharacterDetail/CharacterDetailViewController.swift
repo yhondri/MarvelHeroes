@@ -89,7 +89,9 @@ extension CharacterDetailViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: comicCellReuseIdentifier, for: indexPath) as! ComicCVCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: comicCellReuseIdentifier, for: indexPath) as? ComicCVCell else {
+            fatalError("No se ha podido obtener la celda de tipo ComicCVCell \(#function) - \(#file)")
+        }
         cell.comic = comics[indexPath.row]
         return cell
     }

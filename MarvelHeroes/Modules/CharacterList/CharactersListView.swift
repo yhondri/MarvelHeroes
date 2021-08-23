@@ -45,6 +45,9 @@ class CharactersListView: UIViewController {
         
         setupApiKeyDialog()
         showApiKeysDialog()
+        
+        publicApiKeyTextField.text = "4c67a3efe055e4c8cc3ce13bab5439eb"
+        privateApiKeyTextField.text = "295b31cb02b22d7321d29bd50f7e639620186cd7"
     }
     
     private func setupApiKeyDialog() {
@@ -99,50 +102,42 @@ extension CharactersListView: CharacterListViewP {
             return
         }
         
-        DispatchQueue.main.async {
-            guard !self.characters.isEmpty else {
-                self.characters.append(contentsOf: newCharacters)
-                self.tableView.reloadData()
-                return
-            }
-            
-            let oldLastIndex = self.characters.count
-            let newLastIndex = (self.characters.count + newCharacters.count - 1)
-            self.characters.append(contentsOf: newCharacters)
-            self.tableView.beginUpdates()
-            let newRowsIndexPaths = Array(oldLastIndex...newLastIndex).map { IndexPath(row: $0, section: 0) }
-            self.tableView.insertRows(at: newRowsIndexPaths, with: .top)
-            self.tableView.endUpdates()
+        guard !characters.isEmpty else {
+            characters.append(contentsOf: newCharacters)
+            tableView.reloadData()
+            return
         }
+        
+        let oldLastIndex = self.characters.count
+        let newLastIndex = (self.characters.count + newCharacters.count - 1)
+        characters.append(contentsOf: newCharacters)
+        tableView.beginUpdates()
+        let newRowsIndexPaths = Array(oldLastIndex...newLastIndex).map { IndexPath(row: $0, section: 0) }
+        tableView.insertRows(at: newRowsIndexPaths, with: .top)
+        tableView.endUpdates()
     }
     
     func showErrorLoadingData() {
-        DispatchQueue.main.async {
-            let alertController = UIAlertController(title: LocalizedKey.ups.localized,
-                                                    message: LocalizedKey.characterListViewErrorLoadingCharacters.localized,
-                                                    preferredStyle: .alert)
-            let aceptAction = UIAlertAction(title: LocalizedKey.acept, style: .default, handler: nil)
-            alertController.addAction(aceptAction)
-            self.present(alertController, animated: true, completion: nil)
-        }
-    }
-    
-    func changeLoadingViewVisibility(isHidden: Bool) {
-        DispatchQueue.main.async {
-            if isHidden {
-                self.hideSpinner()
-            } else {
-                self.showSpinner(onView: self.navigationController!.view)
-            }
-        }
+        let alertController = UIAlertController(title: LocalizedKey.ups.localized,
+                                                message: LocalizedKey.characterListViewErrorLoadingCharacters.localized,
+                                                preferredStyle: .alert)
+        let aceptAction = UIAlertAction(title: LocalizedKey.acept, style: .default, handler: nil)
+        alertController.addAction(aceptAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func hideApiKeysDialog() {
-        DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.25) {
-                self.apiKeyDialogView.alpha = 0
-            }
+        UIView.animate(withDuration: 0.25) {
+            self.apiKeyDialogView.alpha = 0
         }
+    }
+    
+    func showLoadingView() {
+        showSpinner(onView: self.navigationController!.view)
+    }
+    
+    func hideLoadingView() {
+        hideSpinner()
     }
 }
 

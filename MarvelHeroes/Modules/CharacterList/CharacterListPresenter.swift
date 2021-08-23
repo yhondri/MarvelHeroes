@@ -17,7 +17,6 @@ class CharacterListPresenter: CharacterListPresentation {
     }
     
     func onLoadData() {
-        view?.changeLoadingViewVisibility(isHidden: false)
         interactor?.onLoadData()
     }
     
@@ -30,15 +29,21 @@ class CharacterListPresenter: CharacterListPresentation {
 extension CharacterListPresenter: CharacterListInteractorOutput {
     func onDidLoadCharacters(_ characters: [Character]) {
         view?.onDidLoadCharacters(characters)
-        view?.changeLoadingViewVisibility(isHidden: true)
     }
     
     func onErrorLoadingCharacters() {
         view?.showErrorLoadingData()
-        view?.changeLoadingViewVisibility(isHidden: true)
     }
     
     func onHideApiKeysDialog() {
         view?.hideApiKeysDialog()
+    }
+    
+    func showLoadingView() {
+        view?.showLoadingView()
+    }
+    
+    func hideLoadingView() {
+        view?.hideLoadingView()
     }
 }

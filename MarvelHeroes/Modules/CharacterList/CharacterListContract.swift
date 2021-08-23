@@ -25,13 +25,16 @@ protocol CharacterListInteractorOutput: AnyObject {
     func onDidLoadCharacters(_ characters: [Character])
     func onErrorLoadingCharacters()
     func onHideApiKeysDialog()
+    func showLoadingView()
+    func hideLoadingView()
 }
 
 protocol CharacterListViewP: AnyObject {
     func onDidLoadCharacters(_ newCharacters: [Character])
     func showErrorLoadingData()
-    func changeLoadingViewVisibility(isHidden: Bool)
     func hideApiKeysDialog()
+    func showLoadingView()
+    func hideLoadingView()
 }
 
 protocol CharacterListWireframe: AnyObject {

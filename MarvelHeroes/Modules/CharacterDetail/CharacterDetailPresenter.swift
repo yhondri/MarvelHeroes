@@ -12,7 +12,10 @@ class CharacterDetailPresenter: CharacterDetailPresentation {
     var router: CharacterDetailWireframe?
     weak var view: CharacterDetailView?
     var character: Character {
-        interactor!.character
+        guard let character = interactor?.character else {
+            fatalError("No se ha podido obtener el personaje desde el interactor \(#function)")
+        }
+        return character
     }
     
     func viewDidLoad(navController: UINavigationController) {

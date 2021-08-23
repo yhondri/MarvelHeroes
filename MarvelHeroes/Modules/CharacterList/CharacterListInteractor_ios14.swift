@@ -9,12 +9,18 @@ import Foundation
 
 extension CharacterListInteractor {
     func onLoadData() {
+        output?.showLoadingView()
+        
         apiRepository.getCharacters { result in
             switch result {
             case .success(let characters):
                 self.handleSuccess(characters: characters)
             case .failure:
-                self.output?.onErrorLoadingCharacters()
+                self.showError()
+            }
+            
+            DispatchQueue.main.async {
+                self.output?.hideLoadingView()
             }
         }
     }
