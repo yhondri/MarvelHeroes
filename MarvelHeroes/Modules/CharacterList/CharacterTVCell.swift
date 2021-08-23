@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 class CharacterTVCell: UITableViewCell {
 
@@ -26,9 +25,8 @@ class CharacterTVCell: UITableViewCell {
                 characterDescriptionLabel.text = LocalizedKey.noDescription.localized
                 characterDescriptionLabel.textColor = .lightGray
             }
-            characterImageView.sd_setImage(with: character.thumbnail.getURL(),
-                                           placeholderImage: nil,
-                                           options: [.progressiveLoad])
+          
+            ImageLoader.loadImage(character.thumbnail.getURL(), in: characterImageView)
         }
     }
     

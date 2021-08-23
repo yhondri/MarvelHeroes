@@ -17,6 +17,8 @@
 		5640AAE726C962C200618AE1 /* ComicListResponseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5640AAE626C962C200618AE1 /* ComicListResponseExtension.swift */; };
 		56581B3126D40EA0005DD8D4 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56581B3026D40EA0005DD8D4 /* MainRouter.swift */; };
 		56581B3226D40EA0005DD8D4 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56581B3026D40EA0005DD8D4 /* MainRouter.swift */; };
+		56581B3426D411C3005DD8D4 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56581B3326D411C3005DD8D4 /* ImageLoader.swift */; };
+		56581B3526D411C3005DD8D4 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56581B3326D411C3005DD8D4 /* ImageLoader.swift */; };
 		5662BE4426CF99A800AD8D43 /* CharacterListInteractor_ios15.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662BE4326CF99A800AD8D43 /* CharacterListInteractor_ios15.swift */; };
 		5662BE4626CF9B0E00AD8D43 /* CharacterListInteractorInputExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662BE4526CF9B0E00AD8D43 /* CharacterListInteractorInputExtension.swift */; };
 		5662BE4726CF9B0E00AD8D43 /* CharacterListInteractorInputExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5662BE4526CF9B0E00AD8D43 /* CharacterListInteractorInputExtension.swift */; };
@@ -135,6 +137,7 @@
 		5640AAE426C9629400618AE1 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		5640AAE626C962C200618AE1 /* ComicListResponseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListResponseExtension.swift; sourceTree = "<group>"; };
 		56581B3026D40EA0005DD8D4 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		56581B3326D411C3005DD8D4 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		5662BE4326CF99A800AD8D43 /* CharacterListInteractor_ios15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractor_ios15.swift; sourceTree = "<group>"; };
 		5662BE4526CF9B0E00AD8D43 /* CharacterListInteractorInputExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractorInputExtension.swift; sourceTree = "<group>"; };
 		5662BE4826CF9B5800AD8D43 /* ApiRepository_ios15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRepository_ios15.swift; sourceTree = "<group>"; };
@@ -329,6 +332,7 @@
 			children = (
 				5692624826C0862200D15396 /* ColorExtension.swift */,
 				56791ADD26BD2A2F006A6BA8 /* DateExtension.swift */,
+				56581B3326D411C3005DD8D4 /* ImageLoader.swift */,
 				56791AD726BD2571006A6BA8 /* NotificationExtension.swift */,
 				56791ADF26BD2AED006A6BA8 /* StringExtension.swift */,
 				5692625126C0922200D15396 /* UIViewControllerExtension.swift */,
@@ -599,6 +603,7 @@
 				5640AAE326C9628600618AE1 /* Character.swift in Sources */,
 				56791AE826BD30FB006A6BA8 /* CharacterListRouter.swift in Sources */,
 				5662BE4E26CF9D3000AD8D43 /* CharacterDetailInteractoriOS14Extension.swift in Sources */,
+				56581B3426D411C3005DD8D4 /* ImageLoader.swift in Sources */,
 				56791AE626BD2EAF006A6BA8 /* CharacterListInteractor.swift in Sources */,
 				5692624526C07E9B00D15396 /* CharacterDetailInteractor.swift in Sources */,
 				5640AADF26C9624B00618AE1 /* Comic.swift in Sources */,
@@ -652,6 +657,7 @@
 				567C7AF926CF9901008E75C7 /* CharacterListData.swift in Sources */,
 				567C7AFA26CF9901008E75C7 /* CharacterListResponse.swift in Sources */,
 				567C7AFB26CF9901008E75C7 /* CharacterListPresenter.swift in Sources */,
+				56581B3526D411C3005DD8D4 /* ImageLoader.swift in Sources */,
 				56581B3226D40EA0005DD8D4 /* MainRouter.swift in Sources */,
 				567C7AFC26CF9901008E75C7 /* ComicCVCell.swift in Sources */,
 				567C7AFD26CF9901008E75C7 /* Thumbnail.swift in Sources */,

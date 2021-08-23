@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 class ComicCVCell: UICollectionViewCell {
     @IBOutlet weak var comicThumbnailImageView: UIImageView!
@@ -15,9 +14,7 @@ class ComicCVCell: UICollectionViewCell {
     var comic: Comic! {
         didSet {
             comicNameLabel.text = comic.title
-            comicThumbnailImageView.sd_setImage(with: comic.thumbnail.getURL(),
-                                           placeholderImage: nil,
-                                           options: [.progressiveLoad])
+            ImageLoader.loadImage(comic.thumbnail.getURL(), in: comicThumbnailImageView)
         }
     }
     
