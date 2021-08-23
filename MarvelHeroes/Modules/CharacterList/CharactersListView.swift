@@ -45,9 +45,6 @@ class CharactersListView: UIViewController {
         
         setupApiKeyDialog()
         showApiKeysDialog()
-        
-        publicApiKeyTextField.text = ""
-        privateApiKeyTextField.text = ""
     }
     
     private func setupApiKeyDialog() {
