@@ -23,9 +23,14 @@ class CharactersListViewMock: CharacterListViewP {
         showErrorLoadingDataCalled = true
     }
     
-    func changeLoadingViewVisibility(isHidden: Bool) {
+    func showLoadingView() {
         changeLoadingViewVisibilityChecked = true
     }
+    
+    func hideLoadingView() {
+        changeLoadingViewVisibilityChecked = true
+    }
+    
     
     func hideApiKeysDialog() {
         hideApiKeysDialogCalled = true

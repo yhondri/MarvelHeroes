@@ -12,6 +12,7 @@ class CharacterListViewPresenterMock: NSObject {
     private(set) var onDidLoadCharactersCalled = false
     private(set) var onErrorLoadingCharactersCalled = false
     private(set) var onHideApiKeysDialogCalled = false
+    private(set) var changeLoadingViewVisibilityChecked = false
 }
 
 // MARK: - CharacterListInteractorOutput
@@ -26,6 +27,14 @@ extension CharacterListViewPresenterMock: CharacterListInteractorOutput {
     
     func onHideApiKeysDialog() {
         onHideApiKeysDialogCalled = true
+    }
+    
+    func showLoadingView() {
+        changeLoadingViewVisibilityChecked = true
+    }
+    
+    func hideLoadingView() {
+        changeLoadingViewVisibilityChecked = true
     }
     
 }
