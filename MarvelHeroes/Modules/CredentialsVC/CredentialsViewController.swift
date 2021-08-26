@@ -69,7 +69,7 @@ class CredentialsViewController: UIViewController {
         
         let credentialContentView = UIView()
         credentialContentView.translatesAutoresizingMaskIntoConstraints = false
-        credentialContentView.backgroundColor = .white
+        credentialContentView.backgroundColor = .surface
         view.addSubview(credentialContentView)
         
         let titleLabel = UILabel()
