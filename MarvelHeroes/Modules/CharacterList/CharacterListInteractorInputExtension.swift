@@ -12,7 +12,6 @@ extension CharacterListInteractorInput {
         DispatchQueue.main.async {
             self.output?.onDidLoadCharacters(characters)
             if !self.didSuccessFirstLoading && !characters.isEmpty {
-                self.output?.onHideApiKeysDialog()
                 self.didSuccessFirstLoading = true
             }
         }

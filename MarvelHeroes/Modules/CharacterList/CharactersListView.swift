@@ -9,19 +9,12 @@ import UIKit
 
 class CharactersListView: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var apiKeyDialogView: UIView!
-    @IBOutlet weak var apiKeyDialogTitleLabel: UILabel!
-    @IBOutlet weak var publicApiKeyTextField: UITextField!
-    @IBOutlet weak var privateApiKeyTextField: UITextField!
-    @IBOutlet weak var apiKeyErrorLabel: UILabel!
-    @IBOutlet weak var apiKeyAceptButton: UIButton!
-    @IBOutlet weak var credentialsMessage: UILabel!
     
     private let presenter: CharacterListPresentation
     private lazy var characters: [Character] = [Character]()
-    private let cellIdentifier = "CharacterTVCell"
     private let loadMorCellIdentifier = "loadMorCellIdentifier"
-
+    private var didLoadCharacters: Bool = false
+    
     init(presenter: CharacterListPresentation) {
         self.presenter = presenter
         super.init(nibName: "CharactersListView", bundle: nil)
@@ -39,56 +32,17 @@ class CharactersListView: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.estimatedRowHeight = 60
-        tableView.register(UINib(nibName: "CharacterTVCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        tableView.register(CharacterTVCell.nib(), forCellReuseIdentifier: CharacterTVCell.cellIdentifier)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: loadMorCellIdentifier)
         tableView.backgroundColor = .backgroundColor
-        
-        setupApiKeyDialog()
-        showApiKeysDialog()
-    }
-    
-    private func setupApiKeyDialog() {
-        apiKeyDialogTitleLabel.text = LocalizedKey.characterListViewCredentials.localized
-        credentialsMessage.text = LocalizedKey.characterListViewCredentialsMessage.localized
-        publicApiKeyTextField.placeholder = LocalizedKey.characterListViewPublicApiKey.localized
-        privateApiKeyTextField.placeholder = LocalizedKey.characterListViewPrivateApiKey.localized
-        privateApiKeyTextField.delegate = self
-        apiKeyAceptButton.setTitle(LocalizedKey.acept.localized, for: .normal)
-    }
-    
-    @IBAction func onDidInsertKeys(_ sender: Any) {
-        performInsertKeys()
-    }
-    
-    private func performInsertKeys() {
-        view.endEditing(true)
-
-        guard let publicKey = publicApiKeyTextField.text,
-              let privateKey = privateApiKeyTextField.text,
-              !publicKey.isEmpty,
-              !privateKey.isEmpty else {
-            apiKeyErrorLabel.text = LocalizedKey.characterListViewApiKeyErrorMessage.localized
-            self.apiKeyErrorLabel.isHidden = false
-            return
-        }
-        
-        presenter.onInsertApiKeys(publicKey: publicKey, privateKey: privateKey)
         presenter.onLoadData()
     }
     
-    private func showApiKeysDialog() {
-        self.apiKeyErrorLabel.isHidden = true
-        UIView.animate(withDuration: 0.25) {
-            self.apiKeyDialogView.alpha = 1
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if didLoadCharacters {
+            tableView.reloadData()
         }
-    }
-}
-
-// MARK: - UITextFieldDelegate
-extension CharactersListView: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        performInsertKeys()
-        return true
     }
 }
 
@@ -102,6 +56,7 @@ extension CharactersListView: CharacterListViewP {
         guard !characters.isEmpty else {
             characters.append(contentsOf: newCharacters)
             tableView.reloadData()
+            didLoadCharacters = true
             return
         }
         
@@ -112,6 +67,7 @@ extension CharactersListView: CharacterListViewP {
         let newRowsIndexPaths = Array(oldLastIndex...newLastIndex).map { IndexPath(row: $0, section: 0) }
         tableView.insertRows(at: newRowsIndexPaths, with: .top)
         tableView.endUpdates()
+        didLoadCharacters = true
     }
     
     func showErrorLoadingData() {
@@ -123,18 +79,16 @@ extension CharactersListView: CharacterListViewP {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func hideApiKeysDialog() {
-        UIView.animate(withDuration: 0.25) {
-            self.apiKeyDialogView.alpha = 0
-        }
-    }
-    
     func showLoadingView() {
         showSpinner(onView: self.navigationController!.view)
     }
     
     func hideLoadingView() {
         hideSpinner()
+    }
+    
+    func reloadCellAt(_ indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 
@@ -155,8 +109,13 @@ extension CharactersListView: UITableViewDataSource {
             cell.backgroundColor = .clear
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CharacterTVCell
-            cell.character = characters[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTVCell.cellIdentifier, for: indexPath) as! CharacterTVCell
+            let character = characters[indexPath.row]
+            cell.character = character
+            cell.isFavorite = presenter.favoriteIds.contains(character.id)
+            if let delegate = presenter as? CharacterTVCellDelegate {
+                cell.delegate = delegate
+            }
             cell.selectionStyle = .none
             return cell
         }

@@ -1,20 +1,21 @@
 //
-//  CharacterListInteractor.swift
+//  FavoriteListInteractor.swift
 //  MarvelHeroes
 //
-//  Created by Yhondri Acosta Novas on 6/8/21.
+//  Created by Yhondri Acosta Novas on 24/8/21.
 //
 
 import Foundation
 
-class CharacterListInteractor: CharacterListInteractorInput {
-    weak var output: CharacterListInteractorOutput?
-    var didSuccessFirstLoading = false
-    let apiRepository: ApiRepository
+class FavoriteListInteractor: FavoriteInteractorInput {
+    private let apiRepository: ApiRepository
     var favoriteIds: Set<Int64> {
         apiRepository.getFavoriteIds()
     }
-        
+    var favorites: [Character] {
+        apiRepository.getFavorites()
+    }
+
     init(apiRepository: ApiRepository) {
         self.apiRepository = apiRepository
     }
@@ -23,5 +24,3 @@ class CharacterListInteractor: CharacterListInteractorInput {
         apiRepository.onSelectFavorite(character: character)
     }
 }
-
-

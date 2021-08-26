@@ -8,7 +8,7 @@
 import Foundation
 
 struct Comic: Decodable {
-    let id: Int
+    let id: Int64
     let title: String
     let thumbnail: Thumbnail
     let description: String?

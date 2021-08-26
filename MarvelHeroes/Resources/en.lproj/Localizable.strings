@@ -11,6 +11,9 @@
 "acept" = "Acept";
 "no_description" = "No description";
 
+// MARK: - FavoriteListView
+"favoritelistview_favorites" = "Favorites";
+
 // MARK: - CharactersListView
 "characterlistview_characters" = "Characters";
 "characterlistview_error_loading_characters" = "There was a problem loading characters, try again in a few seconds";

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CharacterListPresentation: AnyObject {
-    func onInsertApiKeys(publicKey: String, privateKey: String)
+    var favoriteIds: Set<Int64> { get }
     func onLoadData()
     func onShowCharacterDetail(_ character: Character)
 }
@@ -16,15 +16,15 @@ protocol CharacterListPresentation: AnyObject {
 protocol CharacterListInteractorInput: AnyObject {
     var output: CharacterListInteractorOutput? { get }
     var didSuccessFirstLoading: Bool { get set }
-    
-    func onInsertApiKeys(publicKey: String, privateKey: String)
+    var favoriteIds: Set<Int64> { get }
+
     func onLoadData()
+    func onSelectFavorite(character: Character)
 }
 
 protocol CharacterListInteractorOutput: AnyObject {
     func onDidLoadCharacters(_ characters: [Character])
     func onErrorLoadingCharacters()
-    func onHideApiKeysDialog()
     func showLoadingView()
     func hideLoadingView()
 }
@@ -32,9 +32,9 @@ protocol CharacterListInteractorOutput: AnyObject {
 protocol CharacterListViewP: AnyObject {
     func onDidLoadCharacters(_ newCharacters: [Character])
     func showErrorLoadingData()
-    func hideApiKeysDialog()
     func showLoadingView()
     func hideLoadingView()
+    func reloadCellAt(_ indexPath: IndexPath)
 }
 
 protocol CharacterListWireframe: AnyObject {

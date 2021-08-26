@@ -11,6 +11,9 @@
 "acept" = "Aceptar";
 "no_description" = "Sin descripción";
 
+// MARK: - FavoriteListView
+"favoritelistview_favorites" = "Favoritos";
+
 // MARK: - CharactersListView
 "characterlistview_characters" = "Personajes";
 "characterlistview_error_loading_characters" = "Ha ocurrido un error cargando personajes, vuelve a intentarlo de nuevo en unos segundos";

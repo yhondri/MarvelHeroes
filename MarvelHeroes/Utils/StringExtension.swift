@@ -28,6 +28,9 @@ struct LocalizedKey {
     static let ups = "ups"
     static let acept = "acept"
     static let noDescription = "no_description"
+    
+    //MARK: - FavoriteListView
+    static let favorites = "favoritelistview_favorites"
 
     //MARK: - CharactersListView
     static let characters = "characterlistview_characters"

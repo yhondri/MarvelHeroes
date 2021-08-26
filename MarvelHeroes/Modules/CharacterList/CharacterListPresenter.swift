@@ -8,12 +8,15 @@
 import Foundation
 
 class CharacterListPresenter: CharacterListPresentation {
+    
     var interactor: CharacterListInteractorInput?
     weak var view: CharacterListViewP?
     var router: CharacterListWireframe?
-    
-    func onInsertApiKeys(publicKey: String, privateKey: String) {
-        interactor?.onInsertApiKeys(publicKey: publicKey, privateKey: privateKey)
+    var favoriteIds: Set<Int64> {
+        guard let favoriteIds = interactor?.favoriteIds else {
+            return Set()
+        }
+        return favoriteIds
     }
     
     func onLoadData() {
@@ -35,15 +38,19 @@ extension CharacterListPresenter: CharacterListInteractorOutput {
         view?.showErrorLoadingData()
     }
     
-    func onHideApiKeysDialog() {
-        view?.hideApiKeysDialog()
-    }
-    
     func showLoadingView() {
         view?.showLoadingView()
     }
     
     func hideLoadingView() {
         view?.hideLoadingView()
+    }
+}
+
+// MARK: - CharacterTVCellDelegate
+extension CharacterListPresenter: CharacterTVCellDelegate {
+    func onSelectFavorite(character: Character, indexPath: IndexPath) {
+        interactor?.onSelectFavorite(character: character)
+        view?.reloadCellAt(indexPath)
     }
 }

@@ -20,7 +20,13 @@ protocol ApiRepository: AnyObject {
     /// Obtiene un listado de cómics en los que aparece el personaje cuyo id es pasado por parámetro.
     /// - Parameter characterId: El identificador del personaje cuyos cómics se quieren obtener.
     /// - Parameter completionHandler: Este parámetro es un bloque que devolverá la respuesta asíncrona del resultado de la llamada. Si la ejecución ha ido correctamente devolverá en el parámetro success un listado de los cómics en los que aparece el personaje. Si ha ocurrido un error en el parámetro failure devolverá un error
-    func getComics(characterId: Int, completionHandler: @escaping (Result<[Comic], DispatcherError>) -> Void)
+    func getComics(characterId: Int64, completionHandler: @escaping (Result<[Comic], DispatcherError>) -> Void)
+    
+    func onSelectFavorite(character: Character)
+//    func addFavorite(character: Character, comics: [Comic])
+//    func removeFavorite(character: Character)
+    func getFavorites() -> [Character]
+    func getFavoriteIds() -> Set<Int64>
 }
 
 class ApiRepositoryImpl: ApiRepository {
@@ -59,12 +65,42 @@ class ApiRepositoryImpl: ApiRepository {
             }
     }
     
-    func getComics(characterId: Int, completionHandler: @escaping (Result<[Comic], DispatcherError>) -> Void) {
+    func getComics(characterId: Int64, completionHandler: @escaping (Result<[Comic], DispatcherError>) -> Void) {
         dispatcher.execute(action: .getComics(characterId: characterId))
             .then { result in
                 completionHandler(.success(result.data.comics))
             }.catch { error in
                 completionHandler(.failure(.networkError(error)))
             }
+    }
+    
+    func onSelectFavorite(character: Character) {
+        let favoritesIds = getFavoriteIds()
+        if favoritesIds.contains(character.id) {
+            removeFavorite(characterId: character.id)
+        } else {
+            addFavorite(character: character)
+        }
+    }
+    
+    func addFavorite(character: Character, comics: [Comic] = []) {
+        let context = CoreDataStack.shared.viewContext
+        CharacterEntity.insert(character: character, comics: comics, context: context)
+        CoreDataStack.shared.saveContext()
+    }
+    
+    func removeFavorite(characterId: Int64) {
+        let context = CoreDataStack.shared.viewContext
+        CharacterEntity.deleteById(characterId, context: context)
+        CoreDataStack.shared.saveContext()
+    }
+    
+    func getFavorites() -> [Character] {
+        let context = CoreDataStack.shared.viewContext
+        return CharacterEntity.getAll(context: context)
+    }
+    
+    func getFavoriteIds() -> Set<Int64> {
+        Set(getFavorites().map { $0.id })
     }
 }
