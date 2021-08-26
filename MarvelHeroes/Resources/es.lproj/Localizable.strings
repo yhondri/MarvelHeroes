@@ -13,9 +13,11 @@
 
 // MARK: - FavoriteListView
 "favoritelistview_favorites" = "Favoritos";
+"favoritelistview_empty_list" = "Sin favoritos ¡Añade tus personajes favoritos para verlos en esta lista!";
 
 // MARK: - CharactersListView
 "characterlistview_characters" = "Personajes";
+"characterlistview_empty_list" = "No hay personajes ¡Carga datos para ver los personajes de Marvel!";
 "characterlistview_error_loading_characters" = "Ha ocurrido un error cargando personajes, vuelve a intentarlo de nuevo en unos segundos";
 "characterlistview_load_more" = "Cargar más";
 "characterlistview_credentials" = "Credenciales";

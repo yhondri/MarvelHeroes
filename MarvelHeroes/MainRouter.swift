@@ -30,12 +30,12 @@ class MainRouterImpl: MainRouter {
             fatalError("Cannot run the app without ApiRepository")
         }
         
-        let characterListNavController = UINavigationController(rootViewController: CharacterListRouter.getModule(repository: repository))
+        let characterListNavController = UINavigationController(rootViewController: CharacterListRouter.getModule(repository: repository, moduleType: .characterList))
         characterListNavController.tabBarItem = UITabBarItem(title: LocalizedKey.characters.localized,
                                            image: UIImage(systemName: "person.3")!,
                                            selectedImage: UIImage(systemName: "person.3.fill")!)
         
-        let favoriteListNavController = UINavigationController(rootViewController: FavoriteListRouter.getModule())
+        let favoriteListNavController = UINavigationController(rootViewController: CharacterListRouter.getModule(repository: repository, moduleType: .favoriteList))
         favoriteListNavController.tabBarItem = UITabBarItem(title: LocalizedKey.favorites.localized,
                                            image: UIImage(systemName: "star")!,
                                            selectedImage: UIImage(systemName: "star.fill")!)

@@ -8,7 +8,7 @@
 import Foundation
 
 extension CharacterListInteractor {
-    func onLoadData() {
+    func loadCharacters() {
         guard let apiRepository = apiRepository as? ApiRepositoryiOS15 else {
             fatalError("Este método sólo se puede llamar con un apiRepository que implemente ApiRepositoryiOS15 -- \(#file) - \(#function)")
         }
@@ -18,7 +18,7 @@ extension CharacterListInteractor {
         Task {
             do {
                 let characters = try await apiRepository.getCharacters()
-                self.handleSuccess(characters: characters)
+                self.handleSuccess(newCharacters: characters)
             } catch {
                 self.showError()
             }
