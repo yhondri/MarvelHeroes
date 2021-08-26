@@ -48,6 +48,9 @@ class CredentialsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        publicKeyTextField.text = "4c67a3efe055e4c8cc3ce13bab5439eb"
+        privateKeyTextField.text = "295b31cb02b22d7321d29bd50f7e639620186cd7"
     }
     
     @objc private func onAcept() {

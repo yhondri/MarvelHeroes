@@ -18,7 +18,7 @@ class CharacterListRouter: CharacterListWireframe {
     
     func showCredentialsView() {
         let credentialsView = CredentialsRouter.getModule()
-        view?.present(credentialsView, animated: true, completion: nil)
+        view?.parent?.present(credentialsView, animated: true, completion: nil)
     }
     
     static func getModule(repository: ApiRepository, moduleType: ModuleType) -> CharactersListView {
