@@ -65,14 +65,5 @@ extension CharacterListViewPresenterMock: CharacterListInteractorOutput {
     
     func onHideApiKeysDialog() {
         onHideApiKeysDialogCalled = true
-    }
-    
-    func showLoadingView() {
-        changeLoadingViewVisibilityChecked = true
-    }
-    
-    func hideLoadingView() {
-        changeLoadingViewVisibilityChecked = true
-    }
-    
+    }    
 }

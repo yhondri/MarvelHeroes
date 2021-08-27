@@ -48,14 +48,6 @@ class CharactersListViewMock: CharacterListViewP {
         reloadTableViewCalled = true
     }
     
-    func showLoadingView() {
-        showLoadingViewCalled = true
-    }
-    
-    func hideLoadingView() {
-        hideLoadingViewCalled = true
-    }
-    
     func reloadCellAt(_ indexPath: IndexPath) {
         reloadCellAtCalled = true
     }
