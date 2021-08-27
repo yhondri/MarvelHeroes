@@ -27,6 +27,13 @@ class CharacterListViewInteractorTests: XCTestCase {
         apiRepository.getCharactersSucceeded = false
         interactor.loadData()
 
-        XCTAssertTrue(presenter.onErrorLoadingCharactersCalled, "El flujo de carga de carácters no se ha completado con éxito. No se ha mostrado el mensaje de error cuando ha fallado la carga de personajes.")
+        let exp = expectation(description: "check_success")
+        
+        DispatchQueue.main.async {
+            XCTAssertTrue(self.presenter.onErrorLoadingCharactersCalled, "El flujo de carga de carácters no se ha completado con éxito. No se ha mostrado el mensaje de error cuando ha fallado la carga de personajes.")
+            exp.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
     }
 }
