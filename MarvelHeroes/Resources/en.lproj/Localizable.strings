@@ -11,8 +11,13 @@
 "acept" = "Acept";
 "no_description" = "No description";
 
+// MARK: - FavoriteListView
+"favoritelistview_favorites" = "Favorites";
+"favoritelistview_empty_list" = "No favorites. Add your favorites characters to see them in this list!";
+
 // MARK: - CharactersListView
 "characterlistview_characters" = "Characters";
+"characterlistview_empty_list" = "No characters. Load data to see Marverl's characters";
 "characterlistview_error_loading_characters" = "There was a problem loading characters, try again in a few seconds";
 "characterlistview_load_more" = "Load more";
 "characterlistview_credentials" = "Credentials";

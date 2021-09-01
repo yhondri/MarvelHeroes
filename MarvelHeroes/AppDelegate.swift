@@ -23,11 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        UINavigationBar.appearance().standardAppearance = appearance
-        UINavigationBar.appearance().scrollEdgeAppearance = appearance
-
+        
         mainRouter = MainRouterImpl(window: window)
         mainRouter?.start()
 

@@ -30,7 +30,7 @@ extension ApiRepositoryImpl: ApiRepositoryiOS15 {
         return response.data.characters
     }
     
-    func getComics(characterId: Int) async throws -> [Comic] {
+    func getComics(characterId: Int64) async throws -> [Comic] {
         guard let dispatcher = dispatcher as? DispatcheriOS15 else {
             fatalError("Este método sólo se puede llamar con un dispatcher que implemente DispatcheriOS15 -- \(#file) - \(#function)")
         }

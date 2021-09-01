@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CharacterEntity" representedClassName="CharacterEntity" syncable="YES">
+        <attribute name="mDescription" optional="YES" attributeType="String"/>
+        <attribute name="mId" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="comics" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ComicEntity" inverseName="character" inverseEntity="ComicEntity"/>
+        <relationship name="thumbnail" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ThumbnailEntity" inverseName="character" inverseEntity="ThumbnailEntity"/>
+    </entity>
+    <entity name="ComicEntity" representedClassName="ComicEntity" syncable="YES">
+        <attribute name="mDescription" optional="YES" attributeType="String"/>
+        <attribute name="mId" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharacterEntity" inverseName="comics" inverseEntity="CharacterEntity"/>
+        <relationship name="thumbnail" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ThumbnailEntity" inverseName="comic" inverseEntity="ThumbnailEntity"/>
+    </entity>
+    <entity name="ThumbnailEntity" representedClassName="ThumbnailEntity" syncable="YES">
+        <attribute name="imageExtension" attributeType="String"/>
+        <attribute name="path" attributeType="String"/>
+        <relationship name="character" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharacterEntity" inverseName="thumbnail" inverseEntity="CharacterEntity"/>
+        <relationship name="comic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ComicEntity" inverseName="thumbnail" inverseEntity="ComicEntity"/>
+    </entity>
+    <elements>
+        <element name="CharacterEntity" positionX="4514.42578125" positionY="-964.16796875" width="128" height="118"/>
+        <element name="ThumbnailEntity" positionX="4510.77734375" positionY="-800.265625" width="128" height="103"/>
+        <element name="ComicEntity" positionX="4761.13671875" positionY="-860.90234375" width="128" height="118"/>
+    </elements>
+</model>

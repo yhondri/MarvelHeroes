@@ -8,8 +8,16 @@
 import Foundation
 
 struct Character: Decodable {
-    let id: Int
+    let id: Int64
     let name: String
     let description: String?
     let thumbnail: Thumbnail
+    var isFavorite: Bool = false
+    
+    fileprivate enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case description
+        case thumbnail
+    }
 }

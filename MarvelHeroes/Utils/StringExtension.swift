@@ -28,9 +28,14 @@ struct LocalizedKey {
     static let ups = "ups"
     static let acept = "acept"
     static let noDescription = "no_description"
+    
+    //MARK: - FavoriteListView
+    static let favorites = "favoritelistview_favorites"
+    static let favoritelistviewEmptyList = "favoritelistview_empty_list"
 
     //MARK: - CharactersListView
     static let characters = "characterlistview_characters"
+    static let characterlistviewEmptyList = "characterlistview_empty_list"
     static let characterListViewErrorLoadingCharacters = "characterlistview_error_loading_characters"
     static let characterListViewLoadMore = "characterlistview_load_more"
     static let characterListViewCredentials = "characterlistview_credentials"

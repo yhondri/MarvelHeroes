@@ -8,19 +8,4 @@
 import Foundation
 
 extension CharacterListInteractorInput {
-    func handleSuccess(characters: [Character]) {
-        DispatchQueue.main.async {
-            self.output?.onDidLoadCharacters(characters)
-            if !self.didSuccessFirstLoading && !characters.isEmpty {
-                self.output?.onHideApiKeysDialog()
-                self.didSuccessFirstLoading = true
-            }
-        }
-    }
-    
-    func showError() {
-        DispatchQueue.main.async {
-            self.output?.onErrorLoadingCharacters()
-        }
-    }
 }

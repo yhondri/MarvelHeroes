@@ -11,19 +11,18 @@ import XCTest
 class CharacterListViewInteractorTests: XCTestCase {
     private let apiRepository = ApiRepositoryMock()
     private let presenter = CharacterListViewPresenterMock()
-    
+    lazy var interactor = CharacterListInteractor(apiRepository: apiRepository, moduleType: .characterList)
+
     func testOnLoadDataWorkflowWithSuccess() {
-        let interactor = CharacterListInteractor(apiRepository: apiRepository)
         interactor.output = presenter
         apiRepository.getCharactersSucceeded = true
-        interactor.onLoadData()
+        interactor.loadData()
         
+        XCTAssertTrue(apiRepository.getCharactersCalled, "El flujo de carga de carácters no se ha completado con éxito. El repositorio no se ha llamado para obtener a los personajes")
         let exp = expectation(description: "check_success")
-
+        
         DispatchQueue.main.async {
-            XCTAssertTrue(self.apiRepository.getCharactersCalled, "El flujo de carga de carácters no se ha completado con éxito. El repositorio no se ha llamado para obtener a los personajes")
-            XCTAssertTrue(self.presenter.onHideApiKeysDialogCalled, "El flujo de carga de carácters no se ha completado con éxito. El diálogo de credenciales se ha quedado visible. ")
-            XCTAssertTrue(self.presenter.onDidLoadCharactersCalled, "El flujo de carga de carácters no se ha completado con éxito. No se han mostrado los personajes")
+            XCTAssertTrue(self.presenter.reloadTableViewCalled, "El flujo de carga de carácters no se ha completado con éxito. No se han mostrado los personajes")
             exp.fulfill()
         }
         
@@ -31,10 +30,9 @@ class CharacterListViewInteractorTests: XCTestCase {
     }
     
     func testOnLoadDataWorkflowWithFailure() {
-        let interactor = CharacterListInteractor(apiRepository: apiRepository)
         interactor.output = presenter
         apiRepository.getCharactersSucceeded = false
-        interactor.onLoadData()
+        interactor.loadData()
 
         let exp = expectation(description: "check_success")
         

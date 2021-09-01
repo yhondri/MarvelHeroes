@@ -8,13 +8,13 @@
 import Foundation
 
 extension CharacterListInteractor {
-    func onLoadData() {
+    func loadCharacters() {
         output?.showLoadingView()
         
         apiRepository.getCharacters { result in
             switch result {
             case .success(let characters):
-                self.handleSuccess(characters: characters)
+                self.handleSuccess(newCharacters: characters)
             case .failure:
                 self.showError()
             }

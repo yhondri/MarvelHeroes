@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 // MARK: - GET
 extension Action {
     
@@ -24,7 +22,7 @@ extension Action {
     /// Obtiene el listado de comics del personaje cuyo id es pasado por parámetro.
     /// - Parameter characterId: El id del personaje del cual se quieren obtener los comics.
     /// - Returns: El listado de cómics en los que aparece el personaje.
-    static func getComics(characterId: Int) -> Action<ComicsListResponse> {
+    static func getComics(characterId: Int64) -> Action<ComicsListResponse> {
         let path = String(format: "/characters/%d/comics?", characterId)
         return .init(.get, path: path)
     }
