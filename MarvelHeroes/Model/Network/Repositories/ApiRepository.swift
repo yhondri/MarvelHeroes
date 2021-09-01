@@ -23,8 +23,6 @@ protocol ApiRepository: AnyObject {
     func getComics(characterId: Int64, completionHandler: @escaping (Result<[Comic], DispatcherError>) -> Void)
     
     func onSelectFavorite(character: Character)
-//    func addFavorite(character: Character, comics: [Comic])
-//    func removeFavorite(character: Character)
     func getFavorites() -> [Character]
     func getFavoriteIds() -> Set<Int64>
 }
